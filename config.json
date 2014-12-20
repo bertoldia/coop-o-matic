@@ -1,0 +1,42 @@
+{
+  "server": {
+    "name": "coop-o-matic",
+    "version": "0.0.1",
+    "url": "http://0.0.0.0",
+    "port": 8000
+  },
+  "cameras": [
+    {
+      "id": "cam1",
+      "description": "Coop Camera",
+      "auth": {
+        "username": "",
+        "password": "",
+        "sendImmediately": false
+      },
+      "feed": {
+        "route": "cam1/feed",
+        "url": "http://192.168.2.10/videostream.cgi"
+      }
+    },
+    {
+      "id": "cam2",
+      "description": "Run Camera",
+      "feed": {
+        "route": "cam2/feed",
+        "url": "http://192.168.2.5:8081"
+      }
+    }
+  ],
+  "sensors": [
+    {
+      "id": "temp1",
+      "description": "Coop Temperature Sensor",
+      "reading": {
+        "route": "temp1/reading",
+        "cmd": "echo",
+        "args": ["NO!!!"]
+      }
+    }
+  ]
+}
