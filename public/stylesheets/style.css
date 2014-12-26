@@ -1,8 +1,13 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
-a {
-  color: #00B7FF;
+#videoframe {
+  display: inline-block;
+  position: relative;
+}
+
+#videoframe img {
+  /*WTF*/
+  margin-bottom: -5px;
 }
