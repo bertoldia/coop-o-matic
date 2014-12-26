@@ -10,8 +10,8 @@ function errorHandler(camCfg) {
 }
 
 function streamCamera(camCfg, errorCB) {
-  return function (req, rep) {
-      request.get(camCfg.feed.url, camCfg).on('error', errorCB).pipe(rep);
+  return function (req, res) {
+    request.get(camCfg.feed.url, camCfg).on('error', errorCB).pipe(res);
   };
 }
 
