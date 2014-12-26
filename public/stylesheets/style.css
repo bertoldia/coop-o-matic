@@ -11,3 +11,41 @@ body {
   /*WTF*/
   margin-bottom: -5px;
 }
+
+.cam-ctrl-button {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.cam-ctrl-button:hover {
+  opacity: 0.3;
+  background: black;
+}
+
+#cam-ctrl-button-left {
+  top: 75px;
+  bottom: 75px;
+  left: 0;
+  width: 75px;
+}
+
+#cam-ctrl-button-right {
+  top: 75px;
+  bottom: 75px;
+  right: 0;
+  width: 75px;
+}
+
+#cam-ctrl-button-up {
+  top: 0;
+  left: 75px;
+  right: 75px;
+  height: 75px;
+}
+
+#cam-ctrl-button-down {
+  bottom: 0;
+  left: 75px;
+  right: 75px;
+  height: 75px;
+}
