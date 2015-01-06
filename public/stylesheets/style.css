@@ -82,3 +82,14 @@ h1 {
   right: 75px;
   height: 75px;
 }
+
+#sensors {
+  padding-top: 10px;
+}
+
+.sensor-reading {
+  font-weight: bold;
+  float: left;
+  margin-left: 2px;
+  margin-right: 2px;
+}
