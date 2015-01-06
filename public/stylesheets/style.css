@@ -16,6 +16,25 @@ h1 {
   background-repeat: repeat;
 }
 
+#camera-selection {
+  padding: 5px;
+  padding-bottom: 10px;
+}
+
+.camera-selector {
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  background: grey;
+  font-weight: bold;
+}
+
+.camera-selector:hover {
+  background: black;
+  color: white;
+}
+
 #videoframe {
   display: inline-block;
   position: relative;
