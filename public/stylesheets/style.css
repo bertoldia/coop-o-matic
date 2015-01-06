@@ -8,6 +8,14 @@ h1 {
   color: white;
 }
 
+#viewport {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  background-image: url('/images/noise-light.jpg');
+  background-repeat: repeat;
+}
+
 #videoframe {
   display: inline-block;
   position: relative;
