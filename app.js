@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var cameras = require('./routes/cameras');
 var config = require('./routes/config');
+var sensors = require('./routes/sensors');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use(cameras);
 app.use(config);
+app.use(sensors);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
