@@ -51,8 +51,13 @@ h1 {
 }
 
 .cam-ctrl-button:hover {
-  opacity: 0.3;
-  background: black;
+  opacity: 0.2;
+  background: white;
+}
+
+.cam-ctrl-button:active {
+  opacity: 0.4;
+  background: white;
 }
 
 #cam-ctrl-button-left {
