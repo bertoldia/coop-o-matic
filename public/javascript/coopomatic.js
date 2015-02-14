@@ -36,13 +36,15 @@ function addCameraSelectors(config) {
       "id": this.id,
       "class": "camera-selector",
       "text": this.description
-    }).click(selectCamera(this.feed.route))
+    }).click(selectCamera(this))
       .appendTo("#camera-selection");
   });
 }
 
-function selectCamera(cameraRoute) {
+function selectCamera(camera) {
   return function () {
-    $("#videoframe img").attr("src", cameraRoute);
+    $("#videoframe img").attr("src", camera.feed.route);
+    $(".camera-selector").removeClass("camera-selected");
+    $("#" + camera.id).addClass("camera-selected");
   };
 }

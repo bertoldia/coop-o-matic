@@ -30,6 +30,10 @@ h1 {
   font-weight: bold;
 }
 
+.camera-selected {
+  background: red;
+}
+
 .camera-selector:hover {
   background: black;
   color: white;
