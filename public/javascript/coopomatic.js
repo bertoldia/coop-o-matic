@@ -39,6 +39,7 @@ function addCameraSelectors(config) {
     }).click(selectCamera(this))
       .appendTo("#camera-selection");
   });
+  selectCamera(config.cameras[0])();
 }
 
 function selectCamera(camera) {
