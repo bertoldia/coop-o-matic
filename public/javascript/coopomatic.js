@@ -47,5 +47,26 @@ function selectCamera(camera) {
     $("#videoframe img").attr("src", camera.feed.route);
     $(".camera-selector").removeClass("camera-selected");
     $("#" + camera.id).addClass("camera-selected");
+
+    disconnectMotionCallbacks();
+    connectMotionCallbacks(camera);
   };
+}
+
+function disconnectMotionCallbacks() {
+  $(".cam-ctrl-button").off("mousedown mouseup");
+}
+
+function connectMotionCallbacks(camera) {
+  if (!camera.motion) { return; }
+  $("#cam-ctrl-button-up")
+    .mousedown(function() { $.get(camera.motion.up.route); });
+  $("#cam-ctrl-button-down")
+    .mousedown(function() { $.get(camera.motion.down.route); });
+  $("#cam-ctrl-button-left")
+    .mousedown(function() { $.get(camera.motion.left.route); });
+  $("#cam-ctrl-button-right")
+    .mousedown(function() { $.get(camera.motion.right.route); });
+  $(".cam-ctrl-button")
+    .mouseup(function() { $.get(camera.motion.stop.route); });
 }
