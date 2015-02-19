@@ -38,9 +38,20 @@ function streamCamera(camCfg, errorCB) {
   };
 }
 
+function moveCamera(motion, camCfg) {
+  return function(req, res) {
+    request.get(motion, camCfg);
+    res.end();
+  };
+}
+
 for (var i in config.cameras) {
   var camCfg = config.cameras[i];
   router.get("/" + camCfg.feed.route, streamCamera(camCfg, errorHandler(camCfg)));
+  for (var j in camCfg.motion) {
+    var motion = camCfg.motion[j];
+    router.get("/" + motion.route, moveCamera(motion.url, camCfg));
+  }
 }
 
 module.exports = router;
