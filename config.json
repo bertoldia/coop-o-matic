@@ -17,7 +17,43 @@
       "feed": {
         "route": "cam1/feed",
         "url": "http://192.168.2.10/videostream.cgi"
-      }
+      },
+      "motion": {
+        "up": {
+          "route": "cam1/motion-up",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=2"
+        },
+        "down": {
+          "route": "cam1/motion-down",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=0"
+        },
+        "right": {
+          "route": "cam1/motion-right",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=6"
+        },
+        "left": {
+          "route": "cam1/motion-left",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=4"
+        },
+        "stop": {
+          "route": "cam1/motion-stop",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=1"
+        }
+      },
+      "extra": [
+        {
+          "route": "cam1/ir-on",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=95",
+          "img": "/images/ir-on.png",
+          "caption": "Infrared on"
+        },
+        {
+          "route": "cam1/ir-off",
+          "url": "http://192.168.2.10/decoder_control.cgi?command=94",
+          "img": "/images/ir-off.png",
+          "caption": "Infrared off"
+        }
+      ]
     },
     {
       "id": "cam2",
