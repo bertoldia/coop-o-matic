@@ -6,6 +6,12 @@ var copy = JSON.parse(JSON.stringify(config));
 for (var i in copy.cameras) {
  delete copy.cameras[i].auth;
  delete copy.cameras[i].feed.url;
+ for (var m in copy.cameras[i].motion) {
+   delete copy.cameras[i].motion[m].url;
+ }
+ for (var e in copy.cameras[i].extra) {
+   delete copy.cameras[i].extra[e].url;
+ }
 }
 
 for (var i in copy.sensors) {
