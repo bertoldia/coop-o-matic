@@ -50,6 +50,9 @@ function selectCamera(camera) {
 
     disconnectMotionCallbacks();
     connectMotionCallbacks(camera);
+
+    removeExtra();
+    addExtra(camera)
   };
 }
 
@@ -69,4 +72,24 @@ function connectMotionCallbacks(camera) {
     .mousedown(function() { $.get(camera.motion.right.route); });
   $(".cam-ctrl-button")
     .mouseup(function() { $.get(camera.motion.stop.route); });
+}
+
+function removeExtra() {
+  $("#extra").empty();
+}
+
+function addExtra(camera) {
+  if (!camera.extra) { return; }
+  $(camera.extra).each(function() {
+    $('<img src="' + this.img +
+      '" title="' + this.caption + '"/>')
+    .click(invokeExtra(this))
+    .appendTo("#extra");
+  });
+}
+
+function invokeExtra(extra) {
+  return function() {
+    $.get(extra.route);
+  }
 }
