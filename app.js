@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var basicAuth = require('basic-auth');
+var cfg = require('./config');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,6 +27,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+function authenticate(username, password) {
+  return function(req, res, next) {
+    var user = basicAuth(req);
+    if (!user || user.name !== username || user.pass !== password) {
+      res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+      return res.send(401);
+    }
+    next();
+  };
+}
+
+app.use(authenticate(cfg.server.auth.username, cfg.server.auth.password));
 app.use('/', routes);
 app.use('/users', users);
 app.use(cameras);
@@ -61,6 +75,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

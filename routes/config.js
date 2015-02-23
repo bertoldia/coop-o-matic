@@ -3,6 +3,8 @@ var router = require('express').Router();
 
 var copy = JSON.parse(JSON.stringify(config));
 
+delete copy.server;
+
 for (var i in copy.cameras) {
  delete copy.cameras[i].auth;
  delete copy.cameras[i].feed.url;
