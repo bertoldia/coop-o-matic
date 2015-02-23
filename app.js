@@ -8,7 +8,6 @@ var basicAuth = require('basic-auth');
 var cfg = require('./config');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var cameras = require('./routes/cameras');
 var config = require('./routes/config');
 var sensors = require('./routes/sensors');
@@ -40,7 +39,6 @@ function authenticate(username, password) {
 
 app.use(authenticate(cfg.server.auth.username, cfg.server.auth.password));
 app.use('/', routes);
-app.use('/users', users);
 app.use(cameras);
 app.use(config);
 app.use(sensors);
